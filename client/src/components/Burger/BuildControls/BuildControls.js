@@ -12,7 +12,11 @@ const controls = [
 const BuildControls = props => (
   <div className='BuildControls'>
     { controls.map(control => (
-      <BuildControl key={ control.label } label={ control.label} />
+      <BuildControl 
+        key={ control.label } 
+        label={ control.label} 
+        plusClicked={ () => props.plusClicked(control.type) }
+        minusClicked={ () => props.ingredientRemoved(control.type) }/>
     )) }
   </div>
 );
