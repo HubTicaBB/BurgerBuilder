@@ -14,7 +14,7 @@ class BurgerBuilder extends Component {
   state = {
     ingredients: {
       salad: 0,
-      bacon: 0,
+      bacon: 0,      
       cheese: 0,
       meat: 0
     },
@@ -32,9 +32,8 @@ class BurgerBuilder extends Component {
 
   removeIngredientHandler = type => {
     const updatedIngredients = { ...this.state.ingredients };
-    updatedIngredients[type] = (updatedIngredients[type] > 0) 
-      ? this.state.ingredients[type] -1
-      : this.state.ingredients[type];
+    if (updatedIngredients[type] < 1) return;
+    updatedIngredients[type] = this.state.ingredients[type] -1;
 
     const newPrice = this.state.totalPrice + INGREDIENT_PRICES[type];
 
