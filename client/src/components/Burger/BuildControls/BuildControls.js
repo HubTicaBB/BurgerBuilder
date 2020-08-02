@@ -1,6 +1,8 @@
 import React from 'react';
 import './BuildControls.css';
 import BuildControl from './BuildControl/BuildControl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons'
 
 const controls = [
   { label: 'Salad', type: 'salad' },
@@ -11,6 +13,12 @@ const controls = [
 
 const BuildControls = props => (
   <div className='BuildControls'>
+    <h3 className='m-4 text-danger'>Currrent Price: 
+      <span className='badge badge-pill badge-outline-primary border border-danger ml-3 p-3'>
+        <FontAwesomeIcon icon={ faDollarSign } />&nbsp;&nbsp;
+        { props.totalPrice.toFixed(2) }
+      </span>
+    </h3>
     { controls.map(control => (
       <BuildControl 
         key={ control.label } 
