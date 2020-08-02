@@ -16,7 +16,8 @@ const BuildControls = props => (
         key={ control.label } 
         label={ control.label} 
         plusClicked={ () => props.plusClicked(control.type) }
-        minusClicked={ () => props.minusClicked(control.type) }/>
+        minusClicked={ () => props.minusClicked(control.type) }
+        disabled={ props.disabled[control.type] }/>
     )) }
   </div>
 );

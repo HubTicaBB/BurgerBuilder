@@ -6,7 +6,8 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 const BuildControl = props => (
   <div className="btn-group mb-2">
     <button className='btn btn-success'
-      onClick={ props.minusClicked }>
+      onClick={ props.minusClicked }
+      disabled={ props.disabled }>
       <FontAwesomeIcon icon={ faMinus } />
     </button>  
     <button className='btn btn-secondary' style={{ minWidth: '100px' }}>
