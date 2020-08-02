@@ -16,7 +16,7 @@ const BuildControls = props => (
         key={ control.label } 
         label={ control.label} 
         plusClicked={ () => props.plusClicked(control.type) }
-        minusClicked={ () => props.ingredientRemoved(control.type) }/>
+        minusClicked={ () => props.minusClicked(control.type) }/>
     )) }
   </div>
 );
