@@ -3,11 +3,15 @@ import './Burger.css';
 import Ingredient from './Ingredient/Ingredient';
 
 const Burger = props => {
-  const transformedIngredients = Object.keys(props.ingredients).map(ingredientKey => {
-    return [...Array(props.ingredients[ingredientKey])].map((_, i) =>
-      <Ingredient key={ ingredientKey + i } type={ ingredientKey } />
-    );
-  });
+  let transformedIngredients = Object.keys(props.ingredients)
+    .map(ingredientKey => [...Array(props.ingredients[ingredientKey])]
+      .map((_, i) => <Ingredient key={ ingredientKey + i } type={ ingredientKey } />)
+    )
+    .reduce((array, element) => array.concat(element), []);
+
+  if (transformedIngredients.length === 0) {
+    transformedIngredients = <p>Please start adding ingredients!</p>
+  }
 
   return (
     <div className='Burger'>
