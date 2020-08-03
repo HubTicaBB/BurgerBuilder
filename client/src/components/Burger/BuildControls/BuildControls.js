@@ -2,7 +2,7 @@ import React from 'react';
 import './BuildControls.css';
 import BuildControl from './BuildControl/BuildControl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDollarSign, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { faDollarSign, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const controls = [
   { label: 'Salad', type: 'salad' },
@@ -27,8 +27,11 @@ const BuildControls = props => (
         minusClicked={ () => props.minusClicked(control.type) }
         disabled={ props.disabled[control.type] }/>
     )) }
-    <button type="button" class="btn btn-primary m-5" disabled={ !props.purchasable }>
-      <FontAwesomeIcon icon={ faShoppingCart }/>&nbsp;&nbsp;Go to Payment</button>
+    <button 
+      onClick={ props.purchased }
+      disabled={ !props.purchasable }
+      type="button" className="btn btn-primary m-5" >
+      <FontAwesomeIcon icon={ faShoppingCart } />&nbsp;&nbsp;Go to Payment</button>
   </div>
 );
 
